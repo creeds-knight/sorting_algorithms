@@ -1,4 +1,5 @@
 #include "sort.h"
+void swapp(int *pos_1, int *pos_2, size_t size, int *array);
 
 /**
  * swap - A function to swap the numbers at different indexes
@@ -6,11 +7,12 @@
  * @pos_2:  A number at the last position
  * Return - None
  */
-void swap(int *pos_1, int *pos_2)
+void swapp(int *pos_1, int *pos_2, size_t size,int *array)
 {
 	int tmp = *pos_1;
 	*pos_1 = *pos_2;
 	*pos_2 = tmp;
+	print_array(array, size);
 }
 
 /**
@@ -27,19 +29,16 @@ size_t lomuto_partition(int *array, size_t size, size_t low, size_t high)
 	int pivot = array[high];
 
 	i = low - 1;
-
 	for (j = low; j <= (high - 1); j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < pivot)
 		{
 			i++;
-			swap(&array[i], &array[j]);
-			print_array(array, size);
+			swapp(&array[i], &array[j], size, array);
 		}
 	}
 	i++;
-	swap(&array[i], &array[high]);
-	print_array(array, size);
+	swapp(&array[i], &array[high], size, array);
 	return (i);
 }
 
