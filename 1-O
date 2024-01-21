@@ -1,5 +1,3 @@
-In best case (n)
-In average case (n)
-In worst case (n^^2)In best case (n)
-In average case (n)
-In worst case (n^^2)
+O(n)
+O(n^2)
+O(n^2)
